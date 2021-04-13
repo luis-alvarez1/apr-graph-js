@@ -17,15 +17,15 @@
 
 3.  Run the api with the next command:
 
->
+    >
 
-    npm start
+        npm start
 
-or
+    or
 
->
+    >
 
-    yarn start
+        yarn start
 
 ---
 
