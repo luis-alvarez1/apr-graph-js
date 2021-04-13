@@ -18,7 +18,7 @@ DBConfig.connectDB();
 
 const schema = buildSchema(types);
 app.use(
-  "/api",
+  "/graphql",
   graphqlHTTP({
     schema: schema,
     rootValue: resolvers,

@@ -1,0 +1,14 @@
+type Vehicle {
+  _id: ID
+  name: String
+  model: String
+  year: Int
+  color: String
+  price: Int
+  cylinderCapacity: ID
+  gearbox: ID
+}
+
+type Query {
+  vehicles: [Vehicle]
+}

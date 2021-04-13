@@ -1,4 +1,4 @@
-# SuperSportWagen GraphQL API
+# Supersportwagen GraphQL API
 
 ## Steps to run the API
 
@@ -29,10 +29,12 @@
 
 ---
 
-### If all finishes good, server will start on port 1500 [http://localhost:1500/graphql](http://localhost:1500/graphql)
+### If all finishes good, a local server will start on port 1500:([http://localhost:1500/graphql](http://localhost:1500/graphql))
 
 #
 
 ## You're good to go!
 
 ### API endpoint will appear here once it's deployed
+
+Author: Luis Alvarez. April, 2021
