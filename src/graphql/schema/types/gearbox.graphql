@@ -1,0 +1,8 @@
+type Gearbox {
+  _id: ID!
+  type: String!
+}
+
+type Query {
+  gearboxes: [Gearbox]!
+}

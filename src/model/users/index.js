@@ -21,7 +21,7 @@ const userSchema = new Schema(
     },
     phoneNumber: {
       type: String,
-      trim: String,
+      trim: true,
     },
   },
   { timestamps: true }

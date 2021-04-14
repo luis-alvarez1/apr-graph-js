@@ -1,14 +1,30 @@
 type Vehicle {
-  _id: ID
-  name: String
-  model: String
+  _id: ID!
+  name: String!
+  model: String!
   year: Int
   color: String
-  price: Int
+  price: Int!
   cylinderCapacity: ID
   gearbox: ID
+  stock: Int
+}
+
+input CreateVehicleInput {
+  name: String!
+  model: String!
+  year: Int
+  color: String
+  price: Int!
+  cylinderCapacity: ID
+  gearbox: ID
+  stock: Int
 }
 
 type Query {
-  vehicles: [Vehicle]
+  vehicles: [Vehicle]!
+}
+
+type Mutation {
+  createVehicle(vehicle: CreateVehicleInput): Vehicle!
 }

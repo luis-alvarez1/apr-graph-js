@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 
-const gearBox = new Schema(
+const gearBoxSchema = new Schema(
   {
     type: {
       type: String,
@@ -10,4 +10,4 @@ const gearBox = new Schema(
   },
   { timestamps: true }
 );
-export default model("GearBox", gearBox);
+export default model("GearBox", gearBoxSchema);

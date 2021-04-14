@@ -16,11 +16,9 @@ const vehiclesSchema = new Schema(
       type: Number,
       min: 1900,
       max: 2022,
-      required: true,
     },
     color: {
       type: String,
-      trim: true,
     },
     price: {
       type: Number,
@@ -29,12 +27,13 @@ const vehiclesSchema = new Schema(
     cylinderCapacity: {
       type: Schema.Types.ObjectId, //CylinderCapacity ID
       ref: "CylinderCapacity",
-      required: true,
     },
     gearbox: {
       type: Schema.Types.ObjectId, //Gearbox ID
       ref: "Gearbox",
-      required: true,
+    },
+    stock: {
+      type: Number,
     },
   },
   { timestamps: true }

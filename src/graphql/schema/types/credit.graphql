@@ -1,0 +1,15 @@
+type Credit {
+  _id: ID!
+  userId: ID!
+  creditValue: Int!
+  expirationDate: String!
+  nextFeeExpirationDate: String!
+  feesNumber: Int!
+  expired: Boolean!
+  feeValue: Int!
+  createdAt: String!
+}
+
+type Query {
+  credit: [Credit]
+}
