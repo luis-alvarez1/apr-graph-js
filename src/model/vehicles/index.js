@@ -1,6 +1,6 @@
 import { model, Schema } from "mongoose";
 
-const vehiclesModel = new Schema(
+const vehiclesSchema = new Schema(
   {
     name: {
       type: String,
@@ -39,4 +39,4 @@ const vehiclesModel = new Schema(
   },
   { timestamps: true }
 );
-export default model("Vehicles", vehiclesModel);
+export default model("Vehicles", vehiclesSchema);
