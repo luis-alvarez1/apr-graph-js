@@ -22,6 +22,22 @@ input CreateVehicleInput {
   stock: Int
   imgUrl: String
 }
+input UpdateVehicleInput {
+  _id: ID!
+  name: String
+  model: String
+  year: Int
+  color: String
+  price: Int
+  cylinderCapacity: ID
+  gearbox: ID
+  stock: Int
+  imgUrl: String
+}
+
+input DeleteVehicleInput {
+  _id: ID!
+}
 
 type Query {
   vehicles: [Vehicle]!
@@ -29,4 +45,6 @@ type Query {
 
 type Mutation {
   createVehicle(vehicle: CreateVehicleInput): Vehicle!
+  updateVehicle(vehicle: UpdateVehicleInput): Vehicle!
+  deleteVehicle(vehicle: DeleteVehicleInput): String!
 }

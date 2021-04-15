@@ -11,7 +11,7 @@ export const connectDB = async () => {
       useFindAndModify: false,
       useCreateIndex: true,
     });
-    console.log("DB CONECTADA");
+    console.log("DB Connected");
   } catch (error) {
     console.log("hubo un error");
     console.log(error);

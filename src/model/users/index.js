@@ -1,4 +1,4 @@
-import { model, Schema } from "mogoose";
+import { model, Schema } from "mongoose";
 
 const userSchema = new Schema(
   {
@@ -22,6 +22,11 @@ const userSchema = new Schema(
     phoneNumber: {
       type: String,
       trim: true,
+    },
+    rol_id: {
+      type: Number,
+      trim: true,
+      require: true,
     },
   },
   { timestamps: true }

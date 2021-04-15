@@ -3,9 +3,22 @@ type User {
   name: String!
   password: String!
   email: String!
-  hasActiveFee: String
+  hasActiveFee: Boolean
   phoneNumber: String
+  rol_id: String
 }
+input CreateUserInput {
+  name: String!
+  password: String!
+  email: String!
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+}
+
 type Query {
   users: [User]!
+}
+type Mutation {
+  createUser(user: CreateUserInput): User!
 }
