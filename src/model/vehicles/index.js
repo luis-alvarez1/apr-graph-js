@@ -15,10 +15,11 @@ const vehiclesSchema = new Schema(
     year: {
       type: Number,
       min: 1900,
-      max: 2022,
+      max: new Date().getFullYear(),
     },
     color: {
       type: String,
+      trim: true,
     },
     price: {
       type: Number,
@@ -34,6 +35,9 @@ const vehiclesSchema = new Schema(
     },
     stock: {
       type: Number,
+    },
+    imgUrl: {
+      type: String,
     },
   },
   { timestamps: true }

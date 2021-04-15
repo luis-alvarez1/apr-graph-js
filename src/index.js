@@ -40,6 +40,8 @@ app.use(
   })
 );
 
-app.listen(1500, () => {
-  console.log("server running on http://localhost:1500/graphql");
+const PORT = process.env.PORT | 1500;
+
+app.listen(PORT, () => {
+  console.log(`server running on http://localhost:${PORT}/graphql`);
 });

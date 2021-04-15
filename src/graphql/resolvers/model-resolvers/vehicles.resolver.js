@@ -18,9 +18,7 @@ export default {
     try {
       const newVehicle = new Vehicle(vehicle);
 
-      const newObject = await newVehicle.save();
-      console.log(newObject);
-      return;
+      return await newVehicle.save();
     } catch (error) {
       console.log(error);
     }
