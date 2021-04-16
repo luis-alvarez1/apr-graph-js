@@ -1,8 +1,27 @@
 type Gearbox {
   _id: ID!
+  id: Int!
   type: String!
+}
+input CreateGearboxInput {
+  id: Int!
+  type: String!
+}
+input UpdateGearboxInput {
+  _id: ID!
+  id: Int
+  type: String
+}
+input DeleteGearboxInput {
+  _id: ID!
 }
 
 type Query {
   gearboxes: [Gearbox]!
+}
+
+type Mutation {
+  createGearbox(gearbox: CreateGearboxInput): Gearbox!
+  updateGearbox(gearbox: UpdateGearboxInput): Gearbox!
+  deleteGearbox(gearbox: DeleteGearboxInput): String!
 }

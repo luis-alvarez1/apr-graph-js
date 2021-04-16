@@ -7,6 +7,10 @@ const gearBoxSchema = new Schema(
       required: true,
       trim: true,
     },
+    id: {
+      type: Number,
+      required: true,
+    },
   },
   { timestamps: true }
 );
