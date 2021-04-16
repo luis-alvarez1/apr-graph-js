@@ -1,10 +1,10 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 
 const creditSchema = new Schema(
   {
     userId: {
-      type: String,
-      required: true,
+      type: Types.ObjectId,
+      ref: "Users",
     },
     creditValue: {
       type: Number,
