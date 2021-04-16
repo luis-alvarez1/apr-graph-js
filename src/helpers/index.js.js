@@ -1,7 +1,9 @@
-import * as userHelpers from "./users";
+import * as discountHelpers from "./discountCode";
+import * as tokenHelpers from "./token";
 
 const helpers = {
-  userHelpers,
+  discountHelpers,
+  tokenHelpers,
 };
 
 export default helpers;
