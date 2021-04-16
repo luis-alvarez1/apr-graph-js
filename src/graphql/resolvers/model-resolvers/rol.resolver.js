@@ -1,6 +1,7 @@
 import Role from "../../../model/role";
 
 export default {
+  roles: async () => await Role.find(),
   createRole: async ({ role }, args, ctx) => {
     const { idRole } = role;
 

@@ -33,11 +33,11 @@ export default {
     }
 
     if (!(ctx.rol_id <= 4)) {
-      throw new Error("You are not allowed to make this action.");
+      throw new Error("You are not allowed to do this action.");
     }
 
     try {
-      return await Vehicle.findOneAndUpdate(vehicle);
+      return await Vehicle.findOneAndUpdate({ _id }, vehicle, { new: true });
     } catch (error) {
       console.log(error);
     }

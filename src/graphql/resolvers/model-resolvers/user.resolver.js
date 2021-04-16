@@ -2,6 +2,7 @@ import User from "../../../model/users";
 
 export default {
   users: async () => await User.find(),
+
   createUser: async ({ user }, args, ctx) => {
     const { email } = user;
 
@@ -14,6 +15,39 @@ export default {
     try {
       const newUser = new User(user);
       return newUser.save();
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  updateUser: async ({ user }, args, ctx) => {
+    const { _id } = user;
+
+    const userExists = await User.findOne({ _id });
+
+    if (!userExists) {
+      throw new Error("User does not exists");
+    }
+
+    try {
+      return await User.findOneAndUpdate({ _id }, user, { new: true });
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  deleteUser: async ({ user }, args, ctx) => {
+    const { _id } = user;
+
+    const userExists = await User.findOne({ _id });
+
+    if (!userExists) {
+      throw new Error("User does not exists");
+    }
+
+    try {
+      await User.findOneAndRemove({ _id }, user);
+      return "User removed";
     } catch (error) {
       console.log(error);
     }
