@@ -3,7 +3,7 @@ import Role from "../../../model/role";
 
 export default {
   vehicles: async () => await Vehicle.find(),
-  createVehicle: async ({ vehicle }, args, ctx) => {
+  createVehicle: async ({ vehicle }, { user }, info) => {
     const { model, name, price } = vehicle;
 
     const vehicleExist = await Vehicle.findOne({
@@ -38,7 +38,7 @@ export default {
       console.log(error);
     }
   },
-  deleteVehicle: async ({ vehicle }, args, ctx) => {
+  deleteVehicle: async ({ vehicle }, { user }, info) => {
     const { _id } = vehicle;
 
     const vehicleExist = await Vehicle.findById({ _id });

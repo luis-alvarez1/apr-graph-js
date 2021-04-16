@@ -5,7 +5,7 @@ type Vehicle {
   year: Int
   color: String
   price: Int!
-  cylinderCapacity: ID
+  cylinderCapacity: String
   gearbox: ID
   stock: Int
   imgUrl: String
@@ -17,7 +17,7 @@ input CreateVehicleInput {
   year: Int
   color: String
   price: Int!
-  cylinderCapacity: ID
+  cylinderCapacity: String
   gearbox: ID
   stock: Int
   imgUrl: String
@@ -29,7 +29,7 @@ input UpdateVehicleInput {
   year: Int
   color: String
   price: Int
-  cylinderCapacity: ID
+  cylinderCapacity: String
   gearbox: ID
   stock: Int
   imgUrl: String

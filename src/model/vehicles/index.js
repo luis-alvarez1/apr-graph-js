@@ -26,8 +26,8 @@ const vehiclesSchema = new Schema(
       required: true,
     },
     cylinderCapacity: {
-      type: Schema.Types.ObjectId, //CylinderCapacity ID
-      ref: "CylinderCapacity",
+      type: String,
+      trim: true,
     },
     gearbox: {
       type: Schema.Types.ObjectId, //Gearbox ID

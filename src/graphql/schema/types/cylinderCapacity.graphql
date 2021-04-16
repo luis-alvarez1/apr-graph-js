@@ -1,8 +1,0 @@
-type CylinderCapacity {
-  _id: ID!
-  type: String
-}
-
-type Query {
-  cylinderCapacities: [CylinderCapacity]!
-}
