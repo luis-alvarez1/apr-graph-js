@@ -42,8 +42,12 @@ type Query {
   users: [User]!
 }
 
+type Token {
+  token: String!
+}
+
 type Mutation {
-  authUser(user: AuthUserInput): User!
+  authUser(user: AuthUserInput): Token!
   createUser(user: CreateUserInput): User!
   updateUser(user: UpdateUserInput): User!
   deleteUser(user: DeleteUserInput): String!

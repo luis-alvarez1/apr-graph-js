@@ -5,8 +5,34 @@ import bcrypt from "bcrypt";
 export default {
   users: async () => await User.find(),
 
+  authUser: async ({ user }, args, ctx) => {
+    const { email, password } = user;
+
+    const userRegistered = await User.findOne({ email });
+
+    if (!userRegistered) {
+      throw new Error("User does not exist!");
+    }
+
+    const isPasswordCorrect = await bcrypt.compare(
+      password,
+      userRegistered.password
+    );
+
+    if (!isPasswordCorrect) {
+      throw new Error("Wrong password, try again!");
+    }
+
+    return {
+      token: helpers.tokenHelpers.createToken(
+        userRegistered,
+        process.env.SECRET,
+        "12hr"
+      ),
+    };
+  },
   createUser: async ({ user }, args, ctx) => {
-    const { email } = user;
+    const { email, password } = user;
 
     const userExists = await User.findOne({ email });
 
@@ -22,7 +48,7 @@ export default {
         user.discountCode = helpers.discountHelpers.generateUniqueCode();
       }
       const salt = await bcrypt.genSalt(10);
-      input.password = await bcrypt.hash(password, salt);
+      user.password = await bcrypt.hash(password, salt);
 
       const newUser = new User(user);
       return newUser.save();

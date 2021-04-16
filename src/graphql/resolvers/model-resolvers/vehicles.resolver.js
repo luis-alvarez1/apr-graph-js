@@ -23,19 +23,15 @@ export default {
       console.log(error);
     }
   },
-  updateVehicle: async ({ vehicle }, args, ctx) => {
+  updateVehicle: async ({ vehicle }, { user }, info) => {
     const { _id } = vehicle;
-
     const vehicleExist = await Vehicle.findById({ _id });
-
     if (!vehicleExist) {
       throw new Error("Vehicle does not exist");
     }
-
-    if (!(ctx.rol_id <= 4)) {
+    if (user.rol_id > 4) {
       throw new Error("You are not allowed to do this action.");
     }
-
     try {
       return await Vehicle.findOneAndUpdate({ _id }, vehicle, { new: true });
     } catch (error) {
