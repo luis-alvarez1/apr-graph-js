@@ -18,16 +18,16 @@ app.use(cors());
 DBConfig.connectDB();
 
 const schema = buildSchema(types);
-app.use("/graphql", (request, response) => {
-  return graphqlHTTP({
+app.use("/graphql", (request, response) =>
+  graphqlHTTP({
     schema: schema,
     rootValue: resolvers,
     graphiql: true,
     context: {
       user: helpers.tokenHelpers.getUserFromToken(request),
     },
-  })(request, response);
-});
+  })(request, response)
+);
 
 const PORT = process.env.PORT || 1500;
 
