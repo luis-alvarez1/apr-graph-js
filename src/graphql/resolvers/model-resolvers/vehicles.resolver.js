@@ -1,5 +1,4 @@
 import Vehicle from "../../../model/vehicles";
-import Role from "../../../model/role";
 
 export default {
   vehicles: async () => await Vehicle.find(),
@@ -47,7 +46,7 @@ export default {
       throw new Error("Vehicle does not exist");
     }
 
-    if (!(ctx.rol_id <= 4)) {
+    if (user.rol_id > 4) {
       throw new Error("You are not allowed to make this action.");
     }
 

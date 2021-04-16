@@ -4,8 +4,7 @@ import bcrypt from "bcrypt";
 
 export default {
   users: async () => await User.find(),
-
-  authUser: async ({ user }, args, ctx) => {
+  authUser: async ({ user }, ctx, info) => {
     const { email, password } = user;
 
     const userRegistered = await User.findOne({ email });
@@ -31,7 +30,7 @@ export default {
       ),
     };
   },
-  createUser: async ({ user }, args, ctx) => {
+  createUser: async ({ user }, ctx, info) => {
     const { email, password } = user;
 
     const userExists = await User.findOne({ email });
@@ -56,8 +55,7 @@ export default {
       console.log(error);
     }
   },
-
-  updateUser: async ({ user }, args, ctx) => {
+  updateUser: async ({ user }, ctx, info) => {
     const { _id } = user;
 
     const userExists = await User.findOne({ _id });
@@ -72,8 +70,7 @@ export default {
       console.log(error);
     }
   },
-
-  deleteUser: async ({ user }, args, ctx) => {
+  deleteUser: async ({ user }, ctx, info) => {
     const { _id } = user;
 
     const userExists = await User.findOne({ _id });
