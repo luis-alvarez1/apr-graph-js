@@ -5,8 +5,10 @@ type User {
   email: String!
   hasActiveFee: Boolean
   phoneNumber: String
-  rol_id: String
+  rol_id: Int
+  discountCodeId: Int
 }
+
 input CreateUserInput {
   name: String!
   password: String!
@@ -14,11 +16,30 @@ input CreateUserInput {
   hasActiveFee: Boolean
   phoneNumber: String
   rol_id: Int
+  discountCodeId: Int
+}
+
+input UpdateUserInput {
+  _id: ID!
+  name: String
+  password: String
+  email: String
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+  discountCodeId: Int
+}
+
+input DeleteUserInput {
+  _id: ID!
 }
 
 type Query {
   users: [User]!
 }
+
 type Mutation {
   createUser(user: CreateUserInput): User!
+  updateUser(user: UpdateUserInput): User!
+  deleteUser(user: DeleteUserInput): String!
 }

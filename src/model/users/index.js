@@ -28,6 +28,11 @@ const userSchema = new Schema(
       trim: true,
       require: true,
     },
+    discountCodeId: {
+      type: Number,
+      trim: true,
+      require: true,
+    },
   },
   { timestamps: true }
 );

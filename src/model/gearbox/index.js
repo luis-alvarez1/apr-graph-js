@@ -10,4 +10,4 @@ const gearBoxSchema = new Schema(
   },
   { timestamps: true }
 );
-export default model("GearBox", gearBoxSchema);
+export default model("Gearbox", gearBoxSchema);
