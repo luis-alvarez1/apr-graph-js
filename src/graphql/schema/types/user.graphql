@@ -6,7 +6,7 @@ type User {
   hasActiveFee: Boolean
   phoneNumber: String
   rol_id: Int
-  discountCodeId: Int
+  discountCode: String
 }
 
 input CreateUserInput {
@@ -16,7 +16,7 @@ input CreateUserInput {
   hasActiveFee: Boolean
   phoneNumber: String
   rol_id: Int
-  discountCodeId: Int
+  discountCode: String
 }
 
 input UpdateUserInput {
@@ -27,9 +27,13 @@ input UpdateUserInput {
   hasActiveFee: Boolean
   phoneNumber: String
   rol_id: Int
-  discountCodeId: Int
+  discountCode: String
 }
 
+input AuthUserInput {
+  email: String!
+  password: String!
+}
 input DeleteUserInput {
   _id: ID!
 }
@@ -39,6 +43,7 @@ type Query {
 }
 
 type Mutation {
+  authUser(user: AuthUserInput): User!
   createUser(user: CreateUserInput): User!
   updateUser(user: UpdateUserInput): User!
   deleteUser(user: DeleteUserInput): String!

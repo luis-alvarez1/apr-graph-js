@@ -1,9 +1,7 @@
 import * as discountHelpers from "./discountCode";
 import * as tokenHelpers from "./token";
 
-const helpers = {
+export const helpers = {
   discountHelpers,
   tokenHelpers,
 };
-
-export default helpers;

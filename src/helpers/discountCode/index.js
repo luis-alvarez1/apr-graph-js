@@ -1,5 +1,6 @@
 import { v1 } from "uuid";
 
 export const generateUniqueCode = () => {
-  return v1();
+  const code = v1();
+  return code;
 };

@@ -28,8 +28,8 @@ const userSchema = new Schema(
       trim: true,
       require: true,
     },
-    discountCodeId: {
-      type: Number,
+    discountCode: {
+      type: String,
       trim: true,
       require: true,
     },

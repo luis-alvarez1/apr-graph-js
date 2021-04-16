@@ -1,4 +1,6 @@
 import User from "../../../model/users";
+import { helpers } from "../../../helpers/index.js";
+import bcrypt from "bcrypt";
 
 export default {
   users: async () => await User.find(),
@@ -13,6 +15,15 @@ export default {
     }
 
     try {
+      if (!user.rol_id) {
+        user.rol_id = 5;
+      }
+      if (user.rol_id < 4) {
+        user.discountCode = helpers.discountHelpers.generateUniqueCode();
+      }
+      const salt = await bcrypt.genSalt(10);
+      input.password = await bcrypt.hash(password, salt);
+
       const newUser = new User(user);
       return newUser.save();
     } catch (error) {

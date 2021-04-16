@@ -1,9 +1,0 @@
-type DiscountCode {
-  _id: ID!
-  id: Int
-  code: String
-}
-
-type Query {
-  discountCodes: [DiscountCode]!
-}
