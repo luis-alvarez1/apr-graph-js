@@ -7,7 +7,6 @@ export default {
   createCredit: async ({ credit }, { user }) => {
     const creditExists = await Credit.findOne({ userId: user._id });
 
-    console.log(user);
     if (user.hasActiveFee) {
       throw new Error('An user can have only one active credit');
     }
