@@ -33,7 +33,7 @@ input DeleteCreditInput {
 }
 
 type Query {
-  credit: [Credit]
+  credits: [Credit]
 }
 
 type Mutation {
