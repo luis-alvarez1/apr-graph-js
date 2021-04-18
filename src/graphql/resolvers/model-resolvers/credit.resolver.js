@@ -56,4 +56,23 @@ export default {
       console.log(error);
     }
   },
+  deleteCredit: async ({ credit }, { user }) => {
+    const { _id } = credit;
+
+    if (user.rol_id > 4) {
+      throw new Error('You are not allowed to do this action.');
+    }
+
+    const creditExists = await Credit.findById({ _id });
+
+    if (!creditExists) {
+      throw new Error('Credit does not exist');
+    }
+    try {
+      await Credit.findOneAndRemove({ _id }, credit);
+      return 'Credit removed';
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };

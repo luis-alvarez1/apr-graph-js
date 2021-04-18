@@ -20,5 +20,5 @@ type Query {
 
 type Mutation {
   createRole(role: CreateRoleInput): Role!
-  updateRol(role: UpdateRolInput): Role!
+  updateRole(role: UpdateRolInput): Role!
 }

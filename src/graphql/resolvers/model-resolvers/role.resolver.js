@@ -22,4 +22,23 @@ export default {
       console.log(error);
     }
   },
+  updateRole: async ({ role }, { user }) => {
+    const { _id } = role;
+
+    if (user.rol_id > 4) {
+      throw new Error('You are not allowed to do this action.');
+    }
+
+    const roleExist = await Role.findOne({ _id });
+
+    if (!roleExist) {
+      throw new Error('Role does not exist');
+    }
+
+    try {
+      return await Role.findOneAndUpdate({ _id }, role, { new: true });
+    } catch (error) {
+      console.log(error);
+    }
+  },
 };
