@@ -1,44 +1,49 @@
-import User from "../../../model/users";
-import { helpers } from "../../../helpers/index.js";
-import bcrypt from "bcrypt";
+import bcrypt from 'bcrypt';
+import User from '../../../model/users';
+import helpers from '../../../util/helpers/index';
 
 export default {
   users: async () => await User.find(),
-  authUser: async ({ user }, ctx, info) => {
+  authUser: async ({ user }) => {
     const { email, password } = user;
 
     const userRegistered = await User.findOne({ email });
 
     if (!userRegistered) {
-      throw new Error("User does not exist!");
+      throw new Error('User does not exist!');
     }
 
     const isPasswordCorrect = await bcrypt.compare(
       password,
-      userRegistered.password
+      userRegistered.password,
     );
 
     if (!isPasswordCorrect) {
-      throw new Error("Wrong password, try again!");
+      throw new Error('Wrong password, try again!');
     }
 
     return {
       token: helpers.tokenHelpers.createToken(
         userRegistered,
         process.env.SECRET,
-        "12hr"
+        '12hr',
       ),
     };
   },
-  createUser: async ({ user }, ctx, info) => {
+  createUser: async ({ user }, ctx) => {
     const { email, password } = user;
 
-    const userExists = await User.findOne({ email });
-
-    if (userExists) {
-      throw new Error("User already exists");
+    if (user.rol_id < 1 || user.rol_id > 5) {
+      throw new Error('Role specified is not valid');
     }
 
+    const userExists = await User.findOne({ email });
+    if (userExists) {
+      throw new Error('User already exists');
+    }
+    if (ctx.user.rol_id > 4) {
+      throw new Error('You are not allowed to do this action.');
+    }
     try {
       if (!user.rol_id) {
         user.rol_id = 5;
@@ -55,13 +60,15 @@ export default {
       console.log(error);
     }
   },
-  updateUser: async ({ user }, ctx, info) => {
+  updateUser: async ({ user }, ctx) => {
     const { _id } = user;
 
     const userExists = await User.findOne({ _id });
-
+    if (ctx.user.rol_id > 4) {
+      throw new Error('You are not allowed to do this action.');
+    }
     if (!userExists) {
-      throw new Error("User does not exists");
+      throw new Error('User does not exists');
     }
 
     try {
@@ -70,18 +77,21 @@ export default {
       console.log(error);
     }
   },
-  deleteUser: async ({ user }, ctx, info) => {
+  deleteUser: async ({ user }, ctx) => {
     const { _id } = user;
 
     const userExists = await User.findOne({ _id });
 
+    if (ctx.user.rol_id > 4) {
+      throw new Error('You are not allowed to do this action.');
+    }
     if (!userExists) {
-      throw new Error("User does not exists");
+      throw new Error('User does not exists');
     }
 
     try {
       await User.findOneAndRemove({ _id }, user);
-      return "User removed";
+      return 'User removed';
     } catch (error) {
       console.log(error);
     }

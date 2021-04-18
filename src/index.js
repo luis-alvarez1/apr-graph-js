@@ -1,13 +1,12 @@
-import express from "express";
-import { buildSchema } from "graphql";
-import cors from "cors";
-import types from "./graphql/schema";
-import resolvers from "./graphql/resolvers";
-import { graphqlHTTP } from "express-graphql";
-import jwt from "jsonwebtoken";
-import * as EnvModule from "./config/env";
-import * as DBConfig from "./config/database";
-import { helpers } from "./helpers/index.js";
+import express from 'express';
+import { buildSchema } from 'graphql';
+import cors from 'cors';
+import { graphqlHTTP } from 'express-graphql';
+import types from './graphql/schema';
+import resolvers from './graphql/resolvers';
+import * as EnvModule from './config/env';
+import * as DBConfig from './config/database';
+import helpers from './util/helpers/index';
 
 EnvModule.configEnv();
 
@@ -18,15 +17,15 @@ app.use(cors());
 DBConfig.connectDB();
 
 const schema = buildSchema(types);
-app.use("/graphql", (request, response) =>
+app.use('/graphql', (request, response) =>
   graphqlHTTP({
-    schema: schema,
+    schema,
     rootValue: resolvers,
     graphiql: true,
     context: {
       user: helpers.tokenHelpers.getUserFromToken(request),
     },
-  })(request, response)
+  })(request, response),
 );
 
 const PORT = process.env.PORT || 1500;

@@ -1,4 +1,4 @@
-import { v1 } from "uuid";
+import { v1 } from 'uuid';
 
 export const generateUniqueCode = () => {
   const code = v1();

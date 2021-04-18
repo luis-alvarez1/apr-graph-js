@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import { configEnv } from "../env/index";
+import mongoose from 'mongoose';
+import * as EnvModule from '../env/index';
 
-configEnv();
+EnvModule.configEnv();
 
 export const connectDB = async () => {
   try {
@@ -11,9 +11,9 @@ export const connectDB = async () => {
       useFindAndModify: false,
       useCreateIndex: true,
     });
-    console.log("DB Connected");
+    console.log('DB Connected');
   } catch (error) {
-    console.log("hubo un error");
+    console.log('hubo un error');
     console.log(error);
     process.exit(1);
   }

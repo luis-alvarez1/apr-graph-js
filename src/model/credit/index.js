@@ -1,10 +1,10 @@
-import { model, Schema, Types } from "mongoose";
+import { model, Schema, Types } from 'mongoose';
 
 const creditSchema = new Schema(
   {
     userId: {
       type: Types.ObjectId,
-      ref: "Users",
+      ref: 'Users',
     },
     creditValue: {
       type: Number,
@@ -16,7 +16,6 @@ const creditSchema = new Schema(
     },
     nextFeeExpirationDate: {
       type: Date,
-      required: true,
     },
     feesNumber: {
       type: Number,
@@ -30,8 +29,12 @@ const creditSchema = new Schema(
       type: Number,
       required: true,
     },
+    isActive: {
+      type: Boolean,
+      required: true,
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export default model("Credit", creditSchema);
+export default model('Credit', creditSchema);

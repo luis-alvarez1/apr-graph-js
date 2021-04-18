@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
 const gearBoxSchema = new Schema(
   {
@@ -12,6 +12,6 @@ const gearBoxSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
-export default model("Gearbox", gearBoxSchema);
+export default model('Gearbox', gearBoxSchema);

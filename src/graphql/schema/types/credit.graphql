@@ -1,15 +1,43 @@
 type Credit {
   _id: ID!
   userId: ID!
-  creditValue: Int!
+  creditValue: Float!
   expirationDate: String!
-  nextFeeExpirationDate: String!
+  nextFeeExpirationDate: String
   feesNumber: Int!
   expired: Boolean!
-  feeValue: Int!
-  createdAt: String!
+  feeValue: Float!
+  isActive: Boolean!
+}
+
+input CreateCreditInput {
+  creditValue: Float!
+  expirationDate: String!
+  feesNumber: Int!
+}
+
+input UpdateCreditInput {
+  _id: ID!
+  userId: ID
+  creditValue: Float
+  expirationDate: String
+  nextFeeExpirationDate: String
+  feesNumber: Int
+  expired: Boolean
+  feeValue: Float
+  isActive: Boolean
+}
+
+input DeleteCreditInput {
+  _id: ID
 }
 
 type Query {
   credit: [Credit]
+}
+
+type Mutation {
+  createCredit(credit: CreateCreditInput): Credit!
+  updateCredit(credit: UpdateCreditInput): Credit!
+  deleteCredit(credit: DeleteCreditInput): String!
 }

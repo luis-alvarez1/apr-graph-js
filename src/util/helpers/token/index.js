@@ -1,4 +1,5 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
+
 export const createToken = (user, secret, expiresIn) => {
   const {
     _id,
@@ -21,17 +22,17 @@ export const createToken = (user, secret, expiresIn) => {
       discountCode,
     },
     secret,
-    { expiresIn }
+    { expiresIn },
   );
 };
 
 export const getUserFromToken = (req) => {
-  const token = req.headers["authorization"] || null;
+  const token = req.headers.authorization || null;
   if (token) {
     try {
       const userToken = jwt.verify(
-        token.replace("Bearer ", ""),
-        process.env.SECRET
+        token.replace('Bearer ', ''),
+        process.env.SECRET,
       );
       return userToken;
     } catch (error) {

@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
 const roleSchema = new Schema(
   {
@@ -12,7 +12,7 @@ const roleSchema = new Schema(
       required: true,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-export default model("Role", roleSchema);
+export default model('Role', roleSchema);

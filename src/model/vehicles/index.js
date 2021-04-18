@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
 const vehiclesSchema = new Schema(
   {
@@ -30,8 +30,8 @@ const vehiclesSchema = new Schema(
       trim: true,
     },
     gearbox: {
-      type: Schema.Types.ObjectId, //Gearbox ID
-      ref: "Gearbox",
+      type: Schema.Types.ObjectId, // Gearbox ID
+      ref: 'Gearbox',
     },
     stock: {
       type: Number,
@@ -40,6 +40,6 @@ const vehiclesSchema = new Schema(
       type: String,
     },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
-export default model("Vehicles", vehiclesSchema);
+export default model('Vehicles', vehiclesSchema);

@@ -5,7 +5,7 @@ type User {
   email: String!
   hasActiveFee: Boolean
   phoneNumber: String
-  rol_id: Int
+  rol_id: Int!
   discountCode: String
 }
 
@@ -13,10 +13,8 @@ input CreateUserInput {
   name: String!
   password: String!
   email: String!
-  hasActiveFee: Boolean
   phoneNumber: String
-  rol_id: Int
-  discountCode: String
+  rol_id: Int!
 }
 
 input UpdateUserInput {
