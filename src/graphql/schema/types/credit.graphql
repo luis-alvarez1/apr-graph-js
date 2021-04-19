@@ -32,8 +32,20 @@ input DeleteCreditInput {
   _id: ID
 }
 
+input FilterCredit {
+  _id: ID
+  userId: ID
+  creditValue: Float
+  expirationDate: String
+  nextFeeExpirationDate: String
+  feesNumber: Int
+  expired: Boolean
+  feeValue: Float
+  isActive: Boolean
+}
+
 type Query {
-  credits: [Credit]
+  credits(filter: FilterCredit): [Credit]!
 }
 
 type Mutation {

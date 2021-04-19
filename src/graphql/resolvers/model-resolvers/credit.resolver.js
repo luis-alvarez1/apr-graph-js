@@ -3,12 +3,12 @@ import User from '../../../model/users';
 import helpers from '../../../util/helpers';
 
 export default {
-  credits: async () => await Credit.find(),
+  credits: async ({ filter }) => await Credit.find(filter),
   createCredit: async ({ credit }, { user }) => {
     const creditExists = await Credit.findOne({ userId: user._id });
 
     if (user.hasActiveFee) {
-      throw new Error('An user can have only one active credit');
+      throw new Error('An user can only have  one active credit');
     }
     if (creditExists && creditExists.isActive) {
       throw new Error('Credit already exists');

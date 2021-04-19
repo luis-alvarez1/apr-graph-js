@@ -3,7 +3,7 @@ import User from '../../../model/users';
 import helpers from '../../../util/helpers/index';
 
 export default {
-  users: async () => await User.find(),
+  users: async ({ filter }) => await User.find(filter),
   authUser: async ({ user }) => {
     const { email, password } = user;
 

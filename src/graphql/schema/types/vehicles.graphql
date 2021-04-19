@@ -22,8 +22,22 @@ input CreateVehicleInput {
   stock: Int
   imgUrl: String
 }
+
 input UpdateVehicleInput {
   _id: ID!
+  name: String
+  model: String
+  year: Int
+  color: String
+  price: Int
+  cylinderCapacity: String
+  gearbox: ID
+  stock: Int
+  imgUrl: String
+}
+
+input FilterVehicle {
+  _id: ID
   name: String
   model: String
   year: Int
@@ -40,7 +54,7 @@ input DeleteVehicleInput {
 }
 
 type Query {
-  vehicles: [Vehicle]!
+  vehicles(filter: FilterVehicle): [Vehicle]!
 }
 
 type Mutation {

@@ -1,7 +1,7 @@
 import Gearbox from '../../../model/gearbox';
 
 export default {
-  gearboxes: async () => await Gearbox.find(),
+  gearboxes: async ({ filter }) => await Gearbox.find(filter),
   createGearbox: async ({ gearbox }, { user }) => {
     const { id, type } = gearbox;
 

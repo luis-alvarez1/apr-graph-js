@@ -15,9 +15,14 @@ input UpdateGearboxInput {
 input DeleteGearboxInput {
   _id: ID!
 }
+input FilterGearbox {
+  _id: ID
+  id: Int
+  type: String
+}
 
 type Query {
-  gearboxes: [Gearbox]!
+  gearboxes(filter: FilterGearbox): [Gearbox]!
 }
 
 type Mutation {

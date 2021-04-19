@@ -36,12 +36,23 @@ input DeleteUserInput {
   _id: ID!
 }
 
-type Query {
-  users: [User]!
+input FilterUser {
+  _id: ID
+  name: String
+  password: String
+  email: String
+  hasActiveFee: Boolean
+  phoneNumber: String
+  rol_id: Int
+  discountCode: String
 }
 
 type Token {
   token: String!
+}
+
+type Query {
+  users(filter: FilterUser): [User]!
 }
 
 type Mutation {

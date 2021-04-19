@@ -1,7 +1,7 @@
 import Vehicle from '../../../model/vehicles';
 
 export default {
-  vehicles: async () => await Vehicle.find(),
+  vehicles: async ({ filter }) => await Vehicle.find(filter),
   createVehicle: async ({ vehicle }, { user }) => {
     const { model, name, price } = vehicle;
 

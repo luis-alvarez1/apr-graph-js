@@ -8,17 +8,23 @@ input CreateRoleInput {
   role: String!
 }
 
-input UpdateRolInput {
+input UpdateRoleInput {
   _id: ID!
   idRole: Int
   role: String
 }
 
+input FilterRole {
+  _id: ID
+  idRole: Int
+  role: String
+}
+
 type Query {
-  roles: [Role]!
+  roles(filter: FilterRole): [Role]!
 }
 
 type Mutation {
   createRole(role: CreateRoleInput): Role!
-  updateRole(role: UpdateRolInput): Role!
+  updateRole(role: UpdateRoleInput): Role!
 }
