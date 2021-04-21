@@ -2,7 +2,7 @@
 
 ## Steps to run the API
 
-1.  Make sure you have installed wether `npm` or `yarn`
+1.  Make sure you have installed wether `npm` or `yarn`.
 2.  Install all the NPM packages and dependencies with the next command:
 
     >
