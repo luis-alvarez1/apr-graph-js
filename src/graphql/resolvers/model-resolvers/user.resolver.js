@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import User from '../../../model/users';
+import User from '../../../model/users/Users';
 import helpers from '../../../util/helpers/index';
 
 export default {
@@ -32,6 +32,7 @@ export default {
   },
   createUser: async ({ user }, ctx) => {
     const { email, password } = user;
+    console.log(user.rol_id);
 
     if (user.rol_id < 1 || user.rol_id > 5) {
       throw new Error('Role specified is not valid');

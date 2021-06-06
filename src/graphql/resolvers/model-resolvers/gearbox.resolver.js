@@ -1,4 +1,4 @@
-import Gearbox from '../../../model/gearbox';
+import Gearbox from '../../../model/gearbox/Gearbox';
 
 export default {
   gearboxes: async ({ filter }) => await Gearbox.find(filter),

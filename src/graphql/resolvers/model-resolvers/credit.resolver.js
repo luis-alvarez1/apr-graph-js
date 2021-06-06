@@ -1,5 +1,5 @@
-import Credit from '../../../model/credit';
-import User from '../../../model/users';
+import Credit from '../../../model/credit/Credit';
+import User from '../../../model/users/Users';
 import helpers from '../../../util/helpers';
 
 export default {

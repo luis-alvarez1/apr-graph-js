@@ -1,4 +1,4 @@
-import Role from '../../../model/role';
+import Role from '../../../model/role/Role';
 
 export default {
   roles: async ({ filter }) => await Role.find(filter),

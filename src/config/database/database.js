@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import * as EnvModule from '../env/index';
+import * as EnvModule from '../env/envModule';
 
 EnvModule.configEnv();
 

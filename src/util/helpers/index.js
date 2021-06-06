@@ -1,7 +1,7 @@
-import * as discountHelpers from './discountCode';
-import * as tokenHelpers from './token';
-import * as dateHelpers from './date';
-import * as creditHelpers from './credit';
+import * as discountHelpers from './discountCode/discountHelpers';
+import * as tokenHelpers from './token/tokenHelpers';
+import * as dateHelpers from './date/dateHelpers';
+import * as creditHelpers from './credit/creditHelpers';
 
 const helpers = {
   discountHelpers,

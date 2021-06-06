@@ -4,8 +4,8 @@ import cors from 'cors';
 import { graphqlHTTP } from 'express-graphql';
 import types from './graphql/schema';
 import resolvers from './graphql/resolvers';
-import * as EnvModule from './config/env';
-import * as DBConfig from './config/database';
+import * as EnvModule from './config/env/envModule';
+import * as DBConfig from './config/database/database';
 import helpers from './util/helpers/index';
 
 EnvModule.configEnv();

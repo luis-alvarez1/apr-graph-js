@@ -1,4 +1,4 @@
-import Vehicle from '../../../model/vehicles';
+import Vehicle from '../../../model/vehicles/Vehicles';
 
 export default {
   vehicles: async ({ filter }) => await Vehicle.find(filter),
