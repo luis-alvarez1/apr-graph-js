@@ -30,8 +30,8 @@ const vehiclesSchema = new Schema(
       trim: true,
     },
     gearbox: {
-      type: Schema.Types.ObjectId, // Gearbox ID
-      ref: 'Gearbox',
+      type: Number,
+      trim: true,
     },
     stock: {
       type: Number,
