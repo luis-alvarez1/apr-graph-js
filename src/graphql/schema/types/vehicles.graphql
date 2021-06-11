@@ -3,10 +3,10 @@ type Vehicle {
   name: String!
   model: String!
   year: Int
-  color: String
+  colour: String
   price: Int!
   cylinderCapacity: String
-  gearbox: ID
+  gearbox: Number
   stock: Int
   imgUrl: String
 }
@@ -15,10 +15,10 @@ input CreateVehicleInput {
   name: String!
   model: String!
   year: Int
-  color: String
+  colour: String
   price: Int!
   cylinderCapacity: String
-  gearbox: ID
+  gearbox: Number
   stock: Int
   imgUrl: String
 }
@@ -28,10 +28,10 @@ input UpdateVehicleInput {
   name: String
   model: String
   year: Int
-  color: String
+  colour: String
   price: Int
   cylinderCapacity: String
-  gearbox: ID
+  gearbox: Number
   stock: Int
   imgUrl: String
 }
@@ -41,10 +41,10 @@ input FilterVehicle {
   name: String
   model: String
   year: Int
-  color: String
+  colour: String
   price: Int
   cylinderCapacity: String
-  gearbox: ID
+  gearbox: Number
   stock: Int
   imgUrl: String
 }

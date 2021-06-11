@@ -17,7 +17,7 @@ const vehiclesSchema = new Schema(
       min: 1900,
       max: new Date().getFullYear(),
     },
-    color: {
+    colour: {
       type: String,
       trim: true,
     },
@@ -26,6 +26,7 @@ const vehiclesSchema = new Schema(
       required: true,
     },
     cylinderCapacity: {
+      // https://www.carsguide.com.au/car-advice/engine-capacity-what-does-cc-mean-70785
       type: String,
       trim: true,
     },
