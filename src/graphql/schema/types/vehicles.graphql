@@ -4,7 +4,7 @@ type Vehicle {
   model: String!
   year: Int
   colour: String
-  price: Int!
+  price: Float!
   cylinderCapacity: String
   gearbox: Int
   stock: Int
@@ -16,7 +16,7 @@ input CreateVehicleInput {
   model: String!
   year: Int
   colour: String
-  price: Int!
+  price: Float!
   cylinderCapacity: String
   gearbox: Int
   stock: Int
@@ -29,7 +29,7 @@ input UpdateVehicleInput {
   model: String
   year: Int
   colour: String
-  price: Int
+  price: Float
   cylinderCapacity: String
   gearbox: Int
   stock: Int
@@ -42,7 +42,7 @@ input FilterVehicle {
   model: String
   year: Int
   colour: String
-  price: Int
+  price: Float
   cylinderCapacity: String
   gearbox: Int
   stock: Int
