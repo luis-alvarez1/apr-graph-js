@@ -32,7 +32,6 @@ export default {
   },
   createUser: async ({ user }, ctx) => {
     const { email, password } = user;
-    console.log(user.rol_id);
 
     if (user.rol_id < 1 || user.rol_id > 5) {
       throw new Error('Role specified is not valid');
@@ -43,14 +42,17 @@ export default {
       throw new Error('User already exists');
     }
     if (ctx.user.rol_id > 4) {
-      throw new Error('You are not allowed to do this action.');
+      throw new Error(
+        'You are not allowed to do this action.',
+      );
     }
     try {
       if (!user.rol_id) {
         user.rol_id = 5;
       }
       if (user.rol_id < 4) {
-        user.discountCode = helpers.discountHelpers.generateUniqueCode();
+        user.discountCode =
+          helpers.discountHelpers.generateUniqueCode();
       }
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
@@ -66,14 +68,18 @@ export default {
 
     const userExists = await User.findOne({ _id });
     if (ctx.user.rol_id > 4) {
-      throw new Error('You are not allowed to do this action.');
+      throw new Error(
+        'You are not allowed to do this action.',
+      );
     }
     if (!userExists) {
       throw new Error('User does not exists');
     }
 
     try {
-      return await User.findOneAndUpdate({ _id }, user, { new: true });
+      return await User.findOneAndUpdate({ _id }, user, {
+        new: true,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +90,9 @@ export default {
     const userExists = await User.findOne({ _id });
 
     if (ctx.user.rol_id > 4) {
-      throw new Error('You are not allowed to do this action.');
+      throw new Error(
+        'You are not allowed to do this action.',
+      );
     }
     if (!userExists) {
       throw new Error('User does not exists');
