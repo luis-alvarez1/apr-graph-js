@@ -30,7 +30,7 @@ export default {
       ),
     };
   },
-  createUser: async ({ user }, ctx) => {
+  createUser: async ({ user }) => {
     const { email, password } = user;
 
     if (user.rol_id < 1 || user.rol_id > 5) {
@@ -41,11 +41,7 @@ export default {
     if (userExists) {
       throw new Error('User already exists');
     }
-    if (ctx.user.rol_id > 4) {
-      throw new Error(
-        'You are not allowed to do this action.',
-      );
-    }
+
     try {
       if (!user.rol_id) {
         user.rol_id = 5;
